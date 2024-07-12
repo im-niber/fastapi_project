@@ -3,7 +3,7 @@ from tortoise.contrib.test import TestCase
 from app.models.article import Article
 
 
-class TestCreateAriticle(TestCase):
+class TestCreateArticle(TestCase):
 
     async def test_create_article(self) -> None:
 
@@ -14,7 +14,6 @@ class TestCreateAriticle(TestCase):
 
         # When
         await Article.create(id="test_id", author=author, title=title, body=body)
-        await Article.get_one_by_id()
 
         # Then
         article = await Article.get(title=title)
